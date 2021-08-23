@@ -5,12 +5,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/cupertino.dart';
 
-class Home extends StatefulWidget {
+class Imc extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> {
+class _HomeState extends State<Imc> {
   TextEditingController _pesoController = TextEditingController();
   TextEditingController _alturaController = TextEditingController();
   double _imc = 0;

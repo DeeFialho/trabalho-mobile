@@ -11,7 +11,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
   double getScreenWidth(BuildContext context) {
     return MediaQuery.of(context).size.width;
   }
@@ -52,27 +51,44 @@ class _HomeState extends State<Home> {
         child: Column(
           children: [
             SizedBox(
-              height: getScreenaltura(context) / 15,
+              height: getScreenaltura(context) / 5,
             ),
-
             SizedBox(
               height: getScreenaltura(context) / 10,
             ),
-            
             GestureDetector(
-              
               child: Container(
                 child: Text(
-                  "Calcular",
+                  "Cálculo IMC",
                   style: buttonTextStyle,
                 ),
-                
               ),
             ),
             SizedBox(
               height: getScreenaltura(context) / 15,
             ),
-        
+            GestureDetector(
+              child: Container(
+                child: Text(
+                  "Cálculo do consumo de água",
+                  style: buttonTextStyle,
+                ),
+              ),
+            ),
+            SizedBox(
+              height: getScreenaltura(context) / 15,
+            ),
+            GestureDetector(
+              child: Container(
+                child: Text(
+                  "Cálculo TMB",
+                  style: buttonTextStyle,
+                ),
+              ),
+            ),
+            SizedBox(
+              height: getScreenaltura(context) / 15,
+            ),
           ],
         ),
       ),
