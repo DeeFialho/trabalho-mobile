@@ -54,6 +54,8 @@ class _HomeState extends State<Home> {
       backgroundColor: fadedBlack,
       body: SingleChildScrollView(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(
               height: getScreenHeight(context) / 5,
@@ -63,6 +65,14 @@ class _HomeState extends State<Home> {
             ),
             ElevatedButton(
               child: Text('Cálculo TMB'),
+              style: ElevatedButton.styleFrom(
+                primary: Colors.teal,
+                onPrimary: Colors.white,
+                textStyle: TextStyle(
+                    color: Colors.black,
+                    fontSize: 35,
+                    fontStyle: FontStyle.italic),
+              ),
               onPressed: () {
                 Navigator.push(
                   context,
@@ -70,8 +80,19 @@ class _HomeState extends State<Home> {
                 );
               },
             ),
+            SizedBox(
+              height: getScreenHeight(context) / 25,
+            ),
             ElevatedButton(
               child: Text('Cálculo IMC'),
+              style: ElevatedButton.styleFrom(
+                primary: Colors.teal,
+                onPrimary: Colors.white,
+                textStyle: TextStyle(
+                    color: Colors.black,
+                    fontSize: 35,
+                    fontStyle: FontStyle.italic),
+              ),
               onPressed: () {
                 Navigator.push(
                   context,
@@ -79,8 +100,19 @@ class _HomeState extends State<Home> {
                 );
               },
             ),
+            SizedBox(
+              height: getScreenHeight(context) / 25,
+            ),
             ElevatedButton(
-              child: Text('Cálculo Consumo Água'),
+              child: Text('Consumo de Água'),
+              style: ElevatedButton.styleFrom(
+                primary: Colors.teal,
+                onPrimary: Colors.white,
+                textStyle: TextStyle(
+                    color: Colors.black,
+                    fontSize: 35,
+                    fontStyle: FontStyle.italic),
+              ),
               onPressed: () {
                 Navigator.push(
                   context,
