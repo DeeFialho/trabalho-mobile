@@ -14,8 +14,11 @@ class _ImcState extends State<Imc> {
   TextEditingController _pesoController = TextEditingController();
   TextEditingController _alturaController = TextEditingController();
   double _imc = 0;
+  String _resultado = "";
+
 
   double imcCalc(_peso, _altura) {
+    
     _imc = _peso / (_altura * _altura);
 
     return _imc;
@@ -27,18 +30,6 @@ class _ImcState extends State<Imc> {
 
   double getScreenaltura(BuildContext context) {
     return MediaQuery.of(context).size.height;
-  }
-
-  Color getColor(Set<MaterialState> states) {
-    const Set<MaterialState> interactiveStates = <MaterialState>{
-      MaterialState.pressed,
-      MaterialState.hovered,
-      MaterialState.focused,
-    };
-    if (states.any(interactiveStates.contains)) {
-      return Colors.blue;
-    }
-    return Colors.blue;
   }
 
   @override
@@ -90,11 +81,11 @@ class _ImcState extends State<Imc> {
                     textAlign: TextAlign.center,
                     controller: _alturaController,
                     style: mainTextStyle,
-                    keyboardType: TextInputType.number,
-                    maxLength: 3,
+                    keyboardType: TextInputType.numberWithOptions(decimal: true),
+                    maxLength: 4,
                     decoration: InputDecoration(
                       border: InputBorder.none,
-                      hintText: "altura cm",
+                      hintText: "altura m",
                       hintStyle: hintTextStyle,
                     ),
                   ),
@@ -108,8 +99,16 @@ class _ImcState extends State<Imc> {
               onTap: () {
                 double _peso = double.parse(_pesoController.text);
                 double _altura = double.parse(_alturaController.text);
+               
                 setState(() {
                   imcCalc(_peso, _altura);
+                   if(_imc > 25){
+                      _resultado = "Você está acima do peso";
+                    } else if(_imc >= 18.5 && _imc <= 25){
+                      _resultado = "Você está no peso normal";
+                    }else{
+                      _resultado = "Você está abaixo do peso";
+                    }
                 });
               },
               child: Container(
@@ -124,10 +123,19 @@ class _ImcState extends State<Imc> {
             ),
             Container(
               child: Text(
-                _imc.toStringAsFixed(0),
+                _imc.toStringAsFixed(2),
                 style: resultTextStyle,
+                
               ),
             ),
+              Visibility(
+                visible: _resultado.isNotEmpty,
+                  child: Container(
+                child: Text(
+                  _resultado,
+                  style: mainTextStyle,
+              )),
+              )
           ],
         ),
       ),
