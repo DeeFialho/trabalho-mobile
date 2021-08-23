@@ -35,8 +35,9 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text(
-          "Escolha uma das opções de cálculo",
+          "Health Calc",
           style: titleStyle,
         ),
         systemOverlayStyle: SystemUiOverlayStyle(
@@ -70,7 +71,7 @@ class _HomeState extends State<Home> {
             GestureDetector(
               child: Container(
                 child: Text(
-                  "Cálculo do consumo de água",
+                  "Cálculo consumo de água",
                   style: buttonTextStyle,
                 ),
               ),
