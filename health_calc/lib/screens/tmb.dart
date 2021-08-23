@@ -7,12 +7,12 @@ import 'package:flutter/cupertino.dart';
 
 class Tmb extends StatefulWidget {
   @override
-  _HomeState createState() => _HomeState();
+  _TmbState createState() => _TmbState();
 }
 
 enum genero { feminino, male }
 
-class _HomeState extends State<Tmb> {
+class _TmbState extends State<Tmb> {
   TextEditingController _pesoController = TextEditingController();
   TextEditingController _alturaController = TextEditingController();
   TextEditingController _idadeController = TextEditingController();

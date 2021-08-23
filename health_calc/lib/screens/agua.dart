@@ -7,10 +7,10 @@ import 'package:flutter/cupertino.dart';
 
 class Agua extends StatefulWidget {
   @override
-  _HomeState createState() => _HomeState();
+  _AguaState createState() => _AguaState();
 }
 
-class _HomeState extends State<Agua> {
+class _AguaState extends State<Agua> {
   TextEditingController _pesoController = TextEditingController();
   double _agua = 0;
   

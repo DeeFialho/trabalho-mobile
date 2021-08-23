@@ -4,6 +4,10 @@ import 'package:health_calc/constants/text_style.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:health_calc/screens/tmb.dart';
+
+import 'agua.dart';
+import 'imc.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -15,7 +19,7 @@ class _HomeState extends State<Home> {
     return MediaQuery.of(context).size.width;
   }
 
-  double getScreenaltura(BuildContext context) {
+  double getScreenHeight(BuildContext context) {
     return MediaQuery.of(context).size.height;
   }
 
@@ -51,43 +55,41 @@ class _HomeState extends State<Home> {
         child: Column(
           children: [
             SizedBox(
-              height: getScreenaltura(context) / 5,
+              height: getScreenHeight(context) / 5,
             ),
             SizedBox(
-              height: getScreenaltura(context) / 10,
+              height: getScreenHeight(context) / 10,
             ),
-            GestureDetector(
-              child: Container(
-                child: Text(
-                  "Cálculo IMC",
-                  style: buttonTextStyle,
-                ),
-              ),
-            ),
+             ElevatedButton(
+          child: Text('Cálculo TMB'),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Tmb()),
+            );
+          },
+        ),
+         ElevatedButton(
+          child: Text('Cálculo IMC'),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Imc()),
+            );
+          },
+        ),
+         ElevatedButton(
+          child: Text('Cálculo Consumo Água'),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Agua()),
+            );
+          },
+        ),
+            
             SizedBox(
-              height: getScreenaltura(context) / 15,
-            ),
-            GestureDetector(
-              child: Container(
-                child: Text(
-                  "Cálculo do consumo de água",
-                  style: buttonTextStyle,
-                ),
-              ),
-            ),
-            SizedBox(
-              height: getScreenaltura(context) / 15,
-            ),
-            GestureDetector(
-              child: Container(
-                child: Text(
-                  "Cálculo TMB",
-                  style: buttonTextStyle,
-                ),
-              ),
-            ),
-            SizedBox(
-              height: getScreenaltura(context) / 15,
+              height: getScreenHeight(context) / 15,
             ),
           ],
         ),
