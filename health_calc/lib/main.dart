@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:health_calc/screens/home.dart';
-import 'package:flutter/material.dart';
 
 void main() {
   runApp(MyApp());
