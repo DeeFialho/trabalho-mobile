@@ -7,10 +7,10 @@ import 'package:flutter/cupertino.dart';
 
 class Imc extends StatefulWidget {
   @override
-  _HomeState createState() => _HomeState();
+  _ImcState createState() => _ImcState();
 }
 
-class _HomeState extends State<Imc> {
+class _ImcState extends State<Imc> {
   TextEditingController _pesoController = TextEditingController();
   TextEditingController _alturaController = TextEditingController();
   double _imc = 0;
