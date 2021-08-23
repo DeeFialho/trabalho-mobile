@@ -5,12 +5,22 @@ import 'package:flutter/services.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/cupertino.dart';
 
-class Home extends StatefulWidget {
+class Agua extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> {
+class _HomeState extends State<Agua> {
+  TextEditingController _pesoController = TextEditingController();
+  double _agua = 0;
+  
+
+  double aguaCalc(_peso) {
+    
+      _agua =  _peso * 35;
+    
+    return _agua;
+  }
 
   double getScreenWidth(BuildContext context) {
     return MediaQuery.of(context).size.width;
@@ -37,7 +47,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Escolha uma das opções de cálculo",
+          "Consumo de água diário",
           style: titleStyle,
         ),
         systemOverlayStyle: SystemUiOverlayStyle(
@@ -58,21 +68,53 @@ class _HomeState extends State<Home> {
             SizedBox(
               height: getScreenaltura(context) / 10,
             ),
-            
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  width: getScreenWidth(context) / 3,
+                  child: TextField(
+                    textAlign: TextAlign.center,
+                    controller: _pesoController,
+                    style: mainTextStyle,
+                    keyboardType: TextInputType.number,
+                    maxLength: 3,
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: "peso",
+                      hintStyle: hintTextStyle,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: getScreenaltura(context) / 20,
+            ),
             GestureDetector(
-              
+              onTap: () {
+                double _peso = double.parse(_pesoController.text);
+                
+                setState(() {
+                  aguaCalc(_peso);
+                });
+              },
               child: Container(
                 child: Text(
                   "Calcular",
                   style: buttonTextStyle,
                 ),
-                
               ),
             ),
             SizedBox(
               height: getScreenaltura(context) / 15,
             ),
-        
+            Container(
+              child: Text(
+                _agua.toStringAsFixed(0),
+                style: resultTextStyle,
+              ),
+            ),
           ],
         ),
       ),
