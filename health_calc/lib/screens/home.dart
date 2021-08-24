@@ -41,7 +41,7 @@ class _HomeState extends State<Home> {
         elevation: 0,
       ),
       backgroundColor: fadedBlack,
-      body: SingleChildScrollView(
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
