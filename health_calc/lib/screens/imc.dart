@@ -16,9 +16,7 @@ class _ImcState extends State<Imc> {
   double _imc = 0;
   String _resultado = "";
 
-
   double imcCalc(_peso, _altura) {
-    
     _imc = _peso / (_altura * _altura);
 
     return _imc;
@@ -37,7 +35,7 @@ class _ImcState extends State<Imc> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Índice de massa corporal",
+          "IMC",
           style: titleStyle,
         ),
         systemOverlayStyle: SystemUiOverlayStyle(
@@ -47,7 +45,7 @@ class _ImcState extends State<Imc> {
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
-      backgroundColor: fadedBlack,
+      backgroundColor: backgroundColor,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -81,7 +79,8 @@ class _ImcState extends State<Imc> {
                     textAlign: TextAlign.center,
                     controller: _alturaController,
                     style: mainTextStyle,
-                    keyboardType: TextInputType.numberWithOptions(decimal: true),
+                    keyboardType:
+                        TextInputType.numberWithOptions(decimal: true),
                     maxLength: 4,
                     decoration: InputDecoration(
                       border: InputBorder.none,
@@ -99,16 +98,16 @@ class _ImcState extends State<Imc> {
               onTap: () {
                 double _peso = double.parse(_pesoController.text);
                 double _altura = double.parse(_alturaController.text);
-               
+
                 setState(() {
                   imcCalc(_peso, _altura);
-                   if(_imc > 25){
-                      _resultado = "Você está acima do peso";
-                    } else if(_imc >= 18.5 && _imc <= 25){
-                      _resultado = "Você está no peso normal";
-                    }else{
-                      _resultado = "Você está abaixo do peso";
-                    }
+                  if (_imc > 25) {
+                    _resultado = "Você está acima do peso";
+                  } else if (_imc >= 18.5 && _imc <= 25) {
+                    _resultado = "Você está no peso normal";
+                  } else {
+                    _resultado = "Você está abaixo do peso";
+                  }
                 });
               },
               child: Container(
@@ -125,17 +124,16 @@ class _ImcState extends State<Imc> {
               child: Text(
                 _imc.toStringAsFixed(2),
                 style: resultTextStyle,
-                
               ),
             ),
-              Visibility(
-                visible: _resultado.isNotEmpty,
-                  child: Container(
-                child: Text(
-                  _resultado,
-                  style: mainTextStyle,
+            Visibility(
+              visible: _resultado.isNotEmpty,
+              child: Container(
+                  child: Text(
+                _resultado,
+                style: mainTextStyle,
               )),
-              )
+            )
           ],
         ),
       ),

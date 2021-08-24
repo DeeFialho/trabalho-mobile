@@ -23,7 +23,6 @@ class _HomeState extends State<Home> {
     return MediaQuery.of(context).size.height;
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,18 +39,12 @@ class _HomeState extends State<Home> {
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
-      backgroundColor: fadedBlack,
+      backgroundColor: backgroundColor,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(
-              height: getScreenHeight(context) / 5,
-            ),
-            SizedBox(
-              height: getScreenHeight(context) / 10,
-            ),
             ElevatedButton(
               child: Text('Cálculo TMB'),
               style: ElevatedButton.styleFrom(

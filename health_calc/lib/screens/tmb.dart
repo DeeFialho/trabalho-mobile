@@ -63,7 +63,7 @@ class _TmbState extends State<Tmb> {
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
-      backgroundColor: fadedBlack,
+      backgroundColor: backgroundColor,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -118,7 +118,7 @@ class _TmbState extends State<Tmb> {
                     maxLength: 3,
                     decoration: InputDecoration(
                       border: InputBorder.none,
-                      hintText: "peso",
+                      hintText: "peso kg",
                       hintStyle: hintTextStyle,
                     ),
                   ),
@@ -133,7 +133,7 @@ class _TmbState extends State<Tmb> {
                     maxLength: 3,
                     decoration: InputDecoration(
                       border: InputBorder.none,
-                      hintText: "altura",
+                      hintText: "altura cm",
                       hintStyle: hintTextStyle,
                     ),
                   ),
@@ -179,7 +179,7 @@ class _TmbState extends State<Tmb> {
             ),
             Container(
               child: Text(
-                _tmb.toStringAsFixed(0),
+                _tmb.toStringAsFixed(0) + " calorias",
                 style: resultTextStyle,
               ),
             ),

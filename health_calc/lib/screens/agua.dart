@@ -13,12 +13,11 @@ class Agua extends StatefulWidget {
 class _AguaState extends State<Agua> {
   TextEditingController _pesoController = TextEditingController();
   double _agua = 0;
-  
 
   double aguaCalc(_peso) {
-    
-      _agua =  _peso * 35;
-    
+    _agua = _peso * 35;
+    _agua = _agua / 1000;
+
     return _agua;
   }
 
@@ -30,7 +29,6 @@ class _AguaState extends State<Agua> {
     return MediaQuery.of(context).size.height;
   }
 
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,14 +44,13 @@ class _AguaState extends State<Agua> {
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
-      backgroundColor: fadedBlack,
+      backgroundColor: backgroundColor,
       body: SingleChildScrollView(
         child: Column(
           children: [
             SizedBox(
               height: getScreenaltura(context) / 15,
             ),
-
             SizedBox(
               height: getScreenaltura(context) / 10,
             ),
@@ -70,7 +67,7 @@ class _AguaState extends State<Agua> {
                     maxLength: 3,
                     decoration: InputDecoration(
                       border: InputBorder.none,
-                      hintText: "peso",
+                      hintText: "peso kg",
                       hintStyle: hintTextStyle,
                     ),
                   ),
@@ -83,7 +80,7 @@ class _AguaState extends State<Agua> {
             GestureDetector(
               onTap: () {
                 double _peso = double.parse(_pesoController.text);
-                
+
                 setState(() {
                   aguaCalc(_peso);
                 });
@@ -100,7 +97,7 @@ class _AguaState extends State<Agua> {
             ),
             Container(
               child: Text(
-                _agua.toStringAsFixed(0),
+                _agua.toStringAsFixed(2) + " litros",
                 style: resultTextStyle,
               ),
             ),
