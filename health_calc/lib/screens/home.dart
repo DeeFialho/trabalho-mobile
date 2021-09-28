@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:health_calc/screens/tmb.dart';
+import 'exercicios.dart';
 
 import 'agua.dart';
 import 'imc.dart';
@@ -35,7 +36,7 @@ class _HomeState extends State<Home> {
         systemOverlayStyle: SystemUiOverlayStyle(
             systemNavigationBarColor: Colors.black,
             systemNavigationBarIconBrightness: Brightness.light),
-        brightness: Brightness.dark,
+        //brightness: Brightness.dark,
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
@@ -48,8 +49,8 @@ class _HomeState extends State<Home> {
             ElevatedButton(
               child: Text('Cálculo TMB'),
               style: ElevatedButton.styleFrom(
-                primary: Colors.teal,
-                onPrimary: Colors.white,
+                primary: Colors.transparent,
+                onPrimary: Colors.teal,
                 textStyle: TextStyle(
                     color: Colors.black,
                     fontSize: 35,
@@ -68,8 +69,8 @@ class _HomeState extends State<Home> {
             ElevatedButton(
               child: Text('Cálculo IMC'),
               style: ElevatedButton.styleFrom(
-                primary: Colors.teal,
-                onPrimary: Colors.white,
+                primary: Colors.transparent,
+                onPrimary: Colors.teal,
                 textStyle: TextStyle(
                     color: Colors.black,
                     fontSize: 35,
@@ -88,8 +89,8 @@ class _HomeState extends State<Home> {
             ElevatedButton(
               child: Text('Consumo de Água'),
               style: ElevatedButton.styleFrom(
-                primary: Colors.teal,
-                onPrimary: Colors.white,
+                primary: Colors.transparent,
+                onPrimary: Colors.teal,
                 textStyle: TextStyle(
                     color: Colors.black,
                     fontSize: 35,
@@ -104,6 +105,23 @@ class _HomeState extends State<Home> {
             ),
             SizedBox(
               height: getScreenHeight(context) / 15,
+            ),
+            ElevatedButton(
+              child: Text('Exercícios'),
+              style: ElevatedButton.styleFrom(
+                primary: Colors.transparent,
+                onPrimary: Colors.teal,
+                textStyle: TextStyle(
+                    color: Colors.black,
+                    fontSize: 35,
+                    fontStyle: FontStyle.italic),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Exercicios()),
+                );
+              },
             ),
           ],
         ),
