@@ -6,13 +6,11 @@ final titleStyle =
 final mainTextStyle =
     TextStyle(fontSize: 25, fontWeight: FontWeight.w300, color: primaryColor);
 final hintTextStyle = TextStyle(
-    fontSize: 25,
-    fontWeight: FontWeight.w300,
-    color: primaryColor.withOpacity(.8));
+    fontSize: 25, fontWeight: FontWeight.w300, color: Colors.grey[300]);
 final buttonTextStyle =
-    TextStyle(fontSize: 30, fontWeight: FontWeight.w400, color: secondaryColor);
+    TextStyle(fontSize: 30, fontWeight: FontWeight.w400, color: Colors.teal);
 final resultTextStyle =
-    TextStyle(fontSize: 50, fontWeight: FontWeight.w300, color: titleColor);
+    TextStyle(fontSize: 50, fontWeight: FontWeight.w300, color: accentColor);
 final radioStyle =
     TextStyle(fontSize: 20, fontWeight: FontWeight.w300, color: primaryColor);
 final detalhesStyle =

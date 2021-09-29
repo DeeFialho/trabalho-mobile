@@ -15,7 +15,7 @@ class DetalhesExercicios extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text(
-            exercicio.name,
+            "Detalhes",
             style: titleStyle,
           ),
           systemOverlayStyle: SystemUiOverlayStyle(
@@ -31,31 +31,35 @@ class DetalhesExercicios extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(
+            Align(
+              alignment: Alignment.centerLeft,
               child: Text(
                 "Nome: " + exercicio.name,
                 style: detalhesStyle,
               ),
             ),
-            Container(
+            Align(
+              alignment: Alignment.centerLeft,
               child: Text(
                 "Parte do corpo: " + exercicio.bodyPart,
                 style: detalhesStyle,
               ),
             ),
-            Container(
+            Align(
+              alignment: Alignment.centerLeft,
               child: Text(
                 "Equipamento: " + exercicio.equipment,
                 style: detalhesStyle,
               ),
             ),
-            Container(
+            Align(
+                alignment: Alignment.center,
                 child: Image.network(
-              exercicio.gifUrl,
-              width: 300,
-              height: 400,
-              fit: BoxFit.contain,
-            ))
+                  exercicio.gifUrl,
+                  width: 300,
+                  height: 400,
+                  fit: BoxFit.contain,
+                ))
           ],
         )));
   }
