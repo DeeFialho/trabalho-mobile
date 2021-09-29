@@ -15,3 +15,5 @@ final resultTextStyle =
     TextStyle(fontSize: 50, fontWeight: FontWeight.w300, color: titleColor);
 final radioStyle =
     TextStyle(fontSize: 20, fontWeight: FontWeight.w300, color: primaryColor);
+final detalhesStyle =
+    TextStyle(fontSize: 20, fontWeight: FontWeight.w300, color: secondaryColor);

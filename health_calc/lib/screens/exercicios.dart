@@ -2,11 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:health_calc/constants/app_constants.dart';
 import 'package:health_calc/constants/text_style.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter/cupertino.dart';
-
-import 'dart:collection';
-import 'dart:io';
+import 'package:health_calc/screens/detalhes_exercicios.dart';
 
 import 'dart:async';
 import 'package:http/http.dart' as http;
@@ -29,22 +26,15 @@ class _ExerciciosState extends State<Exercicios> {
         Uri.parse("https://exercisedb.p.rapidapi.com/exercises"),
         headers: _headers);
     var jsonData = json.decode(response.body);
-    print(response.body);
+    print(jsonData);
     List<Exercicio> exercicios = [];
     for (var u in jsonData) {
-      Exercicio exercicio = Exercicio(u['name'], u['bodyPart'], u['equipment']);
+      Exercicio exercicio =
+          Exercicio(u['name'], u['bodyPart'], u['equipment'], u['gifUrl']);
       exercicios.add(exercicio);
     }
-    print(exercicios);
+
     return exercicios;
-  }
-
-  double getScreenWidth(BuildContext context) {
-    return MediaQuery.of(context).size.width;
-  }
-
-  double getScreenaltura(BuildContext context) {
-    return MediaQuery.of(context).size.height;
   }
 
   @override
@@ -67,7 +57,6 @@ class _ExerciciosState extends State<Exercicios> {
         child: FutureBuilder(
           future: _getExercicios(),
           builder: (BuildContext context, AsyncSnapshot snapshot) {
-            print(snapshot.data);
             if (snapshot.data == null) {
               return Container(
                   child:
@@ -80,6 +69,13 @@ class _ExerciciosState extends State<Exercicios> {
                     title: Text(snapshot.data[index].name, style: titleStyle),
                     subtitle:
                         Text(snapshot.data[index].bodyPart, style: radioStyle),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          new MaterialPageRoute(
+                              builder: (context) =>
+                                  DetalhesExercicios(snapshot.data[index])));
+                    },
                   );
                 },
               );
