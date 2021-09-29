@@ -26,7 +26,7 @@ class _ExerciciosState extends State<Exercicios> {
         Uri.parse("https://exercisedb.p.rapidapi.com/exercises"),
         headers: _headers);
     var jsonData = json.decode(response.body);
-    print(jsonData);
+
     List<Exercicio> exercicios = [];
     for (var u in jsonData) {
       Exercicio exercicio =
@@ -59,8 +59,10 @@ class _ExerciciosState extends State<Exercicios> {
           builder: (BuildContext context, AsyncSnapshot snapshot) {
             if (snapshot.data == null) {
               return Container(
-                  child:
-                      Center(child: Text("Carregando...", style: titleStyle)));
+                  child: Center(
+                      child: CircularProgressIndicator(
+                color: accentColor,
+              )));
             } else {
               return ListView.builder(
                 itemCount: snapshot.data.length,

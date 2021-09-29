@@ -4,6 +4,8 @@ import 'package:health_calc/constants/text_style.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:health_calc/screens/buscarExercicios.dart';
+import 'package:health_calc/screens/calorias.dart';
 import 'package:health_calc/screens/tmb.dart';
 import 'exercicios.dart';
 
@@ -47,7 +49,7 @@ class _HomeState extends State<Home> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             ElevatedButton(
-              child: Text('Cálculo TMB'),
+              child: Text('Calcular TMB'),
               style: ElevatedButton.styleFrom(
                 primary: Colors.transparent,
                 onPrimary: Colors.teal,
@@ -67,7 +69,7 @@ class _HomeState extends State<Home> {
               height: getScreenHeight(context) / 25,
             ),
             ElevatedButton(
-              child: Text('Cálculo IMC'),
+              child: Text('Calcular IMC'),
               style: ElevatedButton.styleFrom(
                 primary: Colors.transparent,
                 onPrimary: Colors.teal,
@@ -104,10 +106,10 @@ class _HomeState extends State<Home> {
               },
             ),
             SizedBox(
-              height: getScreenHeight(context) / 15,
+              height: getScreenHeight(context) / 25,
             ),
             ElevatedButton(
-              child: Text('Exercícios'),
+              child: Text('Lista de Exercícios'),
               style: ElevatedButton.styleFrom(
                 primary: Colors.transparent,
                 onPrimary: Colors.teal,
@@ -120,6 +122,46 @@ class _HomeState extends State<Home> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => Exercicios()),
+                );
+              },
+            ),
+            SizedBox(
+              height: getScreenHeight(context) / 25,
+            ),
+            ElevatedButton(
+              child: Text('Pesquisar Calorias'),
+              style: ElevatedButton.styleFrom(
+                primary: Colors.transparent,
+                onPrimary: Colors.teal,
+                textStyle: TextStyle(
+                    color: Colors.black,
+                    fontSize: 35,
+                    fontStyle: FontStyle.italic),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Nutricional()),
+                );
+              },
+            ),
+            SizedBox(
+              height: getScreenHeight(context) / 25,
+            ),
+            ElevatedButton(
+              child: Text('Pesquisar Exercícios'),
+              style: ElevatedButton.styleFrom(
+                primary: Colors.transparent,
+                onPrimary: Colors.teal,
+                textStyle: TextStyle(
+                    color: Colors.black,
+                    fontSize: 35,
+                    fontStyle: FontStyle.italic),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => BuscarExercicios()),
                 );
               },
             ),
