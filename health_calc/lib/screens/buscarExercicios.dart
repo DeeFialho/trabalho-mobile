@@ -54,7 +54,7 @@ class _BuscarExerciciosState extends State<BuscarExercicios> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Calorias"),
+        title: Text("Buscar Exercícios"),
         bottom: PreferredSize(
           preferredSize: Size.fromHeight(48.0),
           child: Row(
@@ -69,7 +69,7 @@ class _BuscarExerciciosState extends State<BuscarExercicios> {
                   child: TextFormField(
                     controller: _controller,
                     decoration: InputDecoration(
-                      hintText: "Buscar um alimento",
+                      hintText: "Buscar parte do corpo",
                       contentPadding: const EdgeInsets.only(left: 24.0),
                       border: InputBorder.none,
                     ),
@@ -103,7 +103,7 @@ class _BuscarExerciciosState extends State<BuscarExercicios> {
           builder: (BuildContext ctx, AsyncSnapshot snapshot) {
             if (snapshot.data == null) {
               return Center(
-                child: Text("Digite um alimento"),
+                child: Text("Digite uma parte do corpo"),
               );
             }
 
