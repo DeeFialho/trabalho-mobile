@@ -42,7 +42,6 @@ class _NutricionalState extends State<Nutricional> {
             "?fields=item_name%2Cnf_calories&appId=30484f83&appKey=06fc1c1602df07364de2f9e473056500"));
     var jsonData = json.decode(response.body);
     _streamController.add(jsonData);
-    print(jsonData);
   }
 
   @override

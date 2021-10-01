@@ -103,7 +103,7 @@ class _BuscarExerciciosState extends State<BuscarExercicios> {
           builder: (BuildContext ctx, AsyncSnapshot snapshot) {
             if (snapshot.data == null) {
               return Center(
-                child: Text("Digite uma parte do corpo"),
+                child: Text("Digite uma parte do corpo", style: titleStyle),
               );
             }
 

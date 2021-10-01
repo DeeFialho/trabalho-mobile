@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:health_calc/constants/app_constants.dart';
 import 'package:health_calc/constants/text_style.dart';
 import 'package:health_calc/model/exercicio.dart';
-//import 'package:flutter_gifimage/flutter_gifimage.dart';
 
 class DetalhesExercicios extends StatelessWidget {
   final Exercicio exercicio;
